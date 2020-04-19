@@ -3,6 +3,9 @@ const keyd = document.querySelector("#key");
 const display = document.querySelector(".text");
 const display2 = document.querySelector(".text2");
 const button = document.querySelector(".btn-vc");
+const dec = document.querySelector(".dec");
+const inpdec = document.querySelector("#decript");
+const btn_dec = document.querySelector(".btn-dec");
 
 button.addEventListener("click", () => {
   const plantext = pt.value.split("");
@@ -12,6 +15,7 @@ button.addEventListener("click", () => {
   if (plantext.length == keys.length) {
     display.textContent = Xor(loopStr(plantext), loopStr(keys));
     display2.textContent = VernamChipter(Xor(loopStr(plantext), loopStr(keys)));
+    dec.style.visibility = "visible";
   }
   if (plantext.length > keys.length) {
     display.textContent = Xor(
@@ -21,12 +25,14 @@ button.addEventListener("click", () => {
     display2.textContent = VernamChipter(
       Xor(loopStr(plantext), loopStr(looplen(plantext, keys)))
     );
+    dec.style.visibility = "visible";
   }
   if (plantext.length < keys.length) {
     display.textContent = Xor(loopStr(looplen(plantext, keys)), loopStr(keys));
     display2.textContent = VernamChipter(
       Xor(loopStr(looplen(plantext, keys)), loopStr(keys))
     );
+    dec.style.visibility = "visible";
   }
 });
 

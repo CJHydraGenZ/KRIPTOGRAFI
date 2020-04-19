@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #1c1e21;
+}
+
+.dec {
+  visibility: hidden;
+}
+
+label {
+  color: white;
+}
+
+input {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #575757;
+  border: none;
+  outline: none;
+  color: rgb(204, 204, 204);
+}
+
+h2 {
+  color: white;
+}
