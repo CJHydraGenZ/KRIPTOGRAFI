@@ -4,12 +4,22 @@ body {
   background: #1c1e21;
 }
 
+nav {
+  height: 60px;
+  background-color: #303030;
+}
+
+.grupv {
+  display: grid;
+}
+
 .dec {
   visibility: hidden;
 }
 
 label {
   color: white;
+  margin: 4px;
 }
 
 input {

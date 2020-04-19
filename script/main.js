@@ -6,6 +6,8 @@ const button = document.querySelector(".btn-vc");
 const dec = document.querySelector(".dec");
 const inpdec = document.querySelector("#decript");
 const btn_dec = document.querySelector(".btn-dec");
+const display3 = document.querySelector(".dec .text3");
+const strdec = document.querySelector(".stringdec");
 
 button.addEventListener("click", () => {
   const plantext = pt.value.split("");
@@ -16,6 +18,21 @@ button.addEventListener("click", () => {
     display.textContent = Xor(loopStr(plantext), loopStr(keys));
     display2.textContent = VernamChipter(Xor(loopStr(plantext), loopStr(keys)));
     dec.style.visibility = "visible";
+
+    btn_dec.addEventListener("click", () => {
+      const inpdecs = inpdec.value.split("");
+      if (inpdec.value == keyd.value) {
+        display3.textContent = Xor(
+          Xor(loopStr(plantext), loopStr(keys)),
+          loopStr(inpdecs)
+        );
+        strdec.textContent = VernamChipter(
+          Xor(Xor(loopStr(plantext), loopStr(keys)), loopStr(inpdecs))
+        );
+      } else {
+        alert("key yang anda masukan tidak cocok");
+      }
+    });
   }
   if (plantext.length > keys.length) {
     display.textContent = Xor(
@@ -26,6 +43,20 @@ button.addEventListener("click", () => {
       Xor(loopStr(plantext), loopStr(looplen(plantext, keys)))
     );
     dec.style.visibility = "visible";
+    btn_dec.addEventListener("click", () => {
+      const inpdecs = inpdec.value.split("");
+      if (inpdec.value == keyd.value) {
+        display3.textContent = Xor(
+          Xor(loopStr(plantext), loopStr(keys)),
+          loopStr(inpdecs)
+        );
+        strdec.textContent = VernamChipter(
+          Xor(Xor(loopStr(plantext), loopStr(keys)), loopStr(inpdecs))
+        );
+      } else {
+        alert("key yang anda masukan tidak cocok");
+      }
+    });
   }
   if (plantext.length < keys.length) {
     display.textContent = Xor(loopStr(looplen(plantext, keys)), loopStr(keys));
@@ -33,9 +64,28 @@ button.addEventListener("click", () => {
       Xor(loopStr(looplen(plantext, keys)), loopStr(keys))
     );
     dec.style.visibility = "visible";
+    btn_dec.addEventListener("click", () => {
+      const inpdecs = inpdec.value.split("");
+      if (inpdec.value == keyd.value) {
+        display3.textContent = Xor(
+          Xor(loopStr(plantext), loopStr(keys)),
+          loopStr(inpdecs)
+        );
+        strdec.textContent = VernamChipter(
+          Xor(Xor(loopStr(plantext), loopStr(keys)), loopStr(inpdecs))
+        );
+      } else {
+        alert("key yang anda masukan tidak cocok");
+      }
+    });
   }
 });
 
+// btn_dec.addEventListener('click',()=>{
+
+// })
+
+//! string to array
 // const text = "cahya";
 // const m = text.split("");
 // console.log(m);
