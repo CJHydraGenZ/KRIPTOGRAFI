@@ -1,0 +1,48 @@
+<form action="#" method="get" onsubmit="return false;">
+	<table class="noborder">
+		<tbody>
+			<tr>
+				<td><label for="text">Text:</label></td>
+				<td><textarea id="text" cols="50" rows="10" style="width:40em; height:15em">THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG.</textarea></td>
+			</tr>
+			<tr>
+				<td><label for="shift">Shift:</label></td>
+				<td><input type="text" id="shift" value="13" style="width:4em;"/></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="button" value="Encrypt" onclick="doCrypt(false);"/>
+					<input type="button" value="Decrypt" onclick="doCrypt(true);"/>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</form>
+
+
+
+
+
+//! Vigenère cipher
+<form action="#" method="get" onsubmit="return false">
+	<table class="noborder">
+		<tbody>
+			<tr>
+				<td><label for="text">Text:</label></td>
+				<td><textarea id="text" cols="50" rows="10" style="width:40em; height:15em">THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.</textarea></td>
+			</tr>
+			<tr>
+				<td><label for="key">Key:</label></td>
+				<td><input type="text" value="abc" id="key" style="width:10em;"/></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="button" value="Encrypt" onclick="doCrypt(false)"/>
+					<input type="button" value="Decrypt" onclick="doCrypt(true)"/>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</form>

@@ -14,7 +14,31 @@
         <i>z</i>
       </div>
     </nav>
+    <div class="kripto">
+      <div class="cc">C</div>
+      <div class="venc">Venc</div>
+      <div class="verc">verc</div>
+    </div>
+    <div class="grupc">
+      <!-- //! ceasarCipher -->
+      <label for="cc">Text</label>
+      <textarea name="cc" id="cc" cols="50" rows="10"></textarea>
+      <label for="keycc">key</label>
+      <input type="text" name="keycc" id="keycc" />
+      <button onclick="doCryptCC(false)">Encript</button>
+      <button onclick="doCryptCC(true)">Decript</button>
+    </div>
+    <div class="grupvi">
+      <!-- //! Vigenère cipher -->
+      <label for="verc">Text</label>
+      <textarea name="verc" id="verc" cols="50" rows="10"></textarea>
+      <label for="vercc">key</label>
+      <input type="text" name="vercc" id="vercc" />
+      <button onclick="doCrypt(false)">Encript</button>
+      <button onclick="doCrypt(true)">Decript</button>
+    </div>
     <div class="grupv">
+      <!-- //! vernam cipher -->
       <label for="plantext">plantext</label>
       <input type="text" name="plantext" id="plantext" />
       <label for="key">key</label>

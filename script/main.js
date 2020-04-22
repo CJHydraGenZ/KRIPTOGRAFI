@@ -9,6 +9,96 @@ const btn_dec = document.querySelector(".btn-dec");
 const display3 = document.querySelector(".dec .text3");
 const strdec = document.querySelector(".stringdec");
 
+function doCryptCC(isDecrypt) {
+  var shiftText = document.querySelector("#keycc").value;
+  if (!/^-?\d+$/.test(shiftText)) {
+    alert("Shift is not an integer");
+    return;
+  }
+  var shift = parseInt(shiftText, 10);
+  if (shift < 0 || shift >= 26) {
+    alert("Shift is out of range");
+    return;
+  }
+  if (isDecrypt) shift = (26 - shift) % 26;
+  var textElem = document.querySelector("#cc");
+  textElem.value = caesarShift(textElem.value, shift);
+}
+
+function caesarShift(text, shift) {
+  var result = "";
+  for (var i = 0; i < text.length; i++) {
+    var c = text.charCodeAt(i);
+    if (65 <= c && c <= 90)
+      result += String.fromCharCode(((c - 65 + shift) % 26) + 65);
+    // Uppercase
+    else if (97 <= c && c <= 122)
+      result += String.fromCharCode(((c - 97 + shift) % 26) + 97);
+    // Lowercase
+    else result += text.charAt(i); // Copy
+  }
+  return result;
+}
+
+function doCrypt(isDecrypt) {
+  if (document.getElementById("vercc").value.length == 0) {
+    alert("Key is empty");
+    return;
+  }
+  var key = filterKey(document.getElementById("vercc").value);
+  if (key.length == 0) {
+    alert("Key has no letters");
+    return;
+  }
+  if (isDecrypt) {
+    for (var i = 0; i < key.length; i++) key[i] = (26 - key[i]) % 26;
+  }
+  var textElem = document.getElementById("verc");
+  textElem.value = crypt(textElem.value, key);
+}
+
+function crypt(input, key) {
+  var output = "";
+  for (var i = 0, j = 0; i < input.length; i++) {
+    var c = input.charCodeAt(i);
+    if (isUppercase(c)) {
+      output += String.fromCharCode(((c - 65 + key[j % key.length]) % 26) + 65);
+      j++;
+    } else if (isLowercase(c)) {
+      output += String.fromCharCode(((c - 97 + key[j % key.length]) % 26) + 97);
+      j++;
+    } else {
+      output += input.charAt(i);
+    }
+  }
+  return output;
+}
+
+function filterKey(key) {
+  var result = [];
+  for (var i = 0; i < key.length; i++) {
+    var c = key.charCodeAt(i);
+    if (isLetter(c)) result.push((c - 65) % 32);
+  }
+  return result;
+}
+
+// Tests whether the specified character code is a letter.
+function isLetter(c) {
+  return isUppercase(c) || isLowercase(c);
+}
+
+// Tests whether the specified character code is an uppercase letter.
+function isUppercase(c) {
+  return 65 <= c && c <= 90; // 65 is character code for 'A'. 90 is 'Z'.
+}
+
+// Tests whether the specified character code is a lowercase letter.
+function isLowercase(c) {
+  return 97 <= c && c <= 122; // 97 is character code for 'a'. 122 is 'z'.
+}
+
+//! vernam chipter
 button.addEventListener("click", () => {
   const plantext = pt.value.split("");
   const keys = keyd.value.split("");
@@ -246,3 +336,5 @@ function destobin(arrdes) {
 
 // console.log("des", n);
 // console.log(destoBHO(n, "B"));
+
+

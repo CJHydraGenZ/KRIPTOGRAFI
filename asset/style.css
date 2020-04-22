@@ -34,3 +34,7 @@ input {
 h2 {
   color: white;
 }
+
+textarea {
+  outline: none;
+}
